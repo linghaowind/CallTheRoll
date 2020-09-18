@@ -1,0 +1,150 @@
+.container-fluid{
+    background-color: #3e4a51;
+    color: #c5c8ca;
+    padding: 1px 0;
+}
+view{
+    box-sizing: border-box;
+}
+.gray{
+    background-color: #c5c8ca;
+}
+.green{
+    background-color: #0bad62;
+}
+.blue{
+    background-color: #3892b8;
+}
+.red{
+    background-color: #c55e4b;
+}
+.detail{
+    width: 600rpx;
+    margin: 0 auto;
+}
+.detail view{
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    margin: 0 20rpx 20rpx;
+}
+.detail text{
+    float: left;
+    height: 40rpx;
+    width:120rpx;
+    line-height: 40rpx;
+    margin-bottom: 20rpx;
+}
+.table{
+    width: 100%;
+    margin: 50rpx 0;
+}
+.table .row{
+    width: 100%;
+    border-bottom: #49545b 1px solid;
+}
+.table .head{
+    background-color: #49545b;
+}
+.table .row .cell{
+    height: 100rpx;
+    letter-spacing: 2px;
+    line-height: 100rpx;
+    overflow: hidden;
+    float: left;
+    width: 250rpx;
+    padding: 0 30rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+.table .head .cell, 
+.table .tail .cell{
+    font-weight: bold;
+}
+.table .row .cell:first-child{
+    text-align: left;
+}
+.table .row .cell:last-child{
+    text-align: right;
+}
+.leave-note{
+    width: 700rpx;
+    margin: 50rpx auto;
+    color: #000;
+    background-color: lightgoldenrodyellow;
+}
+.message{
+    width: 100%;
+    padding: 50rpx;
+    border-bottom: #ccc dotted 5px;
+}
+.leave-title{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20rpx;
+}
+.underline{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #3e4a51;
+}
+.reason{
+    border-bottom: #000 solid 1px;
+}
+.leave-info{
+    margin-left: 300rpx;
+}
+.image{
+    width: 100%;
+    height: 400rpx;
+    line-height: 400rpx;
+    text-align: center;
+}
+.placeholder{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+.camera{
+    width: 200rpx;
+    height: 200rpx;
+    margin: 0 auto;
+}
+.notation{
+    height: 200rpx;
+    line-height: 200rpx;
+    text-align: center;
+    color: #ccc;
+}
+.file{
+    width: 100%;
+    height: 100%;
+}
+.operation{
+    width: 100%;
+}
+.operation view{
+    float: left;
+    width: 50%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+    text-align: center;
+    font-size: 40rpx;
+}
+.operation .deny{
+    background-color: #c55e4b;
+}
+.operation .pass{
+    background-color: #0bad62;
+}
+.no-leave-notes{
+    width: 500rpx;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 36rpx;
+}

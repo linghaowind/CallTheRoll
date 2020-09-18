@@ -1,0 +1,190 @@
+.container {
+  background-color: #3e4a51;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #c5c8ca;
+}
+
+.tips {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 600rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10rpx;
+}
+icon{
+  margin-right: 10rpx;
+}
+.tip {
+  flex: 1 1 auto;
+  width: 400rpx;
+  color: #3e4a51;
+  font-size: 14px;
+  line-height: 20px;
+}
+.qrcode {
+  flex: 0 0 initial;
+  width: 600rpx;
+  height: 600rpx;
+  background-color: #fff;
+  margin: 0 auto 20rpx;
+}
+.slider{
+  flex: 0 0;
+}
+.label {
+  padding: 10px 18px;
+  margin: 30rpx;
+}
+
+.timeout {
+  font-weight: bold;
+  margin: 0 4rpx;
+  color: #fff;
+}
+.slider-wrapper{
+  margin-left: 50rpx;
+}
+.button{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button > .light-btn{
+  margin: 0;
+}
+.countdown {
+  width: 500rpx;
+  margin: 0 auto 100rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  padding-bottom: 10rpx;
+}
+
+.cd-top {
+  background-color: #c5c8ca;
+  border-radius: 20rpx;
+  color: #3e4a51;
+  font-size: 40px;
+  padding: 10rpx 0 0 40rpx;
+  letter-spacing: 15px;
+  margin: 20rpx 0;
+}
+
+.cd-bottom {
+  color: #fff;
+}
+
+.progress {
+  width: 700rpx;
+  margin: 40rpx auto;
+}
+
+.percent {
+  float: left;
+  width: 550rpx;
+}
+
+.detail {
+  float: right;
+  width: 150rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.scroll-view-title {
+  font-size: 36rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 50rpx;
+  color: #3e4a51;
+  background-color: #c5c8ca;
+}
+
+.table {
+  width: 100%;
+}
+
+.table .row {
+  width: 100%;
+  border-bottom: #49545b 1px solid;
+}
+
+.table .head {
+  background-color: #49545b;
+}
+
+.table .row .cell {
+  height: 100rpx;
+  letter-spacing: 2px;
+  line-height: 100rpx;
+  overflow: hidden;
+  float: left;
+  width: 400rpx;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.table .head .cell, .table .tail .cell {
+  font-weight: bold;
+}
+
+.table .row .cell:first-child {
+  /*text-align: left;*/
+  width: 100rpx;
+}
+
+.table .row .cell:last-child {
+  width: 250rpx;
+  /*text-align: right;*/
+}
+
+.add {
+  width: 700rpx;
+  margin: 0 auto 100rpx;
+}
+
+.add-input {
+  float: left;
+  width: 400rpx;
+  padding-left: 20rpx;
+  background-color: #fff;
+  height: 80rpx;
+}
+
+.add-btn {
+  float: right;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #c5c8ca;
+  color: #fff;
+  /*background-color: #fff;*/
+}
+.sign-in-view{
+  margin-top: 30%;
+}
+
+.scanCode {
+  background-color: #3e4a51;
+  color: #fff;
+  font-size: 14px;
+  width: 200px;
+  height: 50px;
+  margin-top: 200rpx;
+  line-height: 50px;
+  border-radius: 25px;
+}
+
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+}

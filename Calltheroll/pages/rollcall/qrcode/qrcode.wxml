@@ -1,0 +1,82 @@
+<view class="container">
+
+  <!--发布点名-->
+  <block wx:if="{{template == 'create'}}">
+    <view class="tips">
+      <icon type="info_circle" size="20" color="#3e4a51" />
+      <view class="tip">长按二维码保存到本地，每门课程对应唯一的二维码。</view>
+    </view>
+    <view class="tips">
+      <icon type="info_circle" size="20" color="#3e4a51" />
+      <view class="tip">您可以提前将二维码作为课件保存，发布点名后再展示给学生。</view>
+    </view>
+    <canvas bindlongtap="previewImg" class="qrcode" canvas-id="qrcode" />
+    <view class="slider">
+      <text class="label">设置本次点名持续时间：<text class="timeout">{{timeout}}</text> min</text>
+      <view class="slider-wrapper">
+        <slider bindchange="timeoutChange" min="1" max="5" value="{{timeout}}" step="1" selected-color="#c5c8ca" show-value/>
+      </view>
+    </view>
+    <view class="button">
+      <button bindtap="createRollcall" class="light-btn">发布点名</button>
+    </view>
+  </block>
+
+  <!--签到情况-->
+  <block wx:if="{{template === 'countdown'}}">
+    <view class="countdown" style="background-color:{{bgc}}">
+      <view class="cd-top">{{timeLeft}}</view>
+      <view class="cd-bottom">剩余时间</view>
+    </view>
+    <view class="progress clearfix">
+      <progress percent="{{signedInStudentsNum/studentSum*100}}" color="	#09BB07" active stroke-width="20" class="percent" />
+      <view class="detail">{{signedInStudentsNum}}/{{studentSum}}</view>
+    </view>
+    <view class="scroll-view-title">签到学生名单</view>
+    <view class="table">
+      <view class="row head clearfix">
+        <view class="cell">序号</view>
+        <view class="cell">姓名</view>
+        <view class="cell">学号</view>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" style="height: 600rpx">
+      <view class="table">
+        <view class="row clearfix" wx:for="{{signedInStudents}}">
+          <view class="cell">{{index+1}}</view>
+          <view class="cell">{{item.userName}}</view>
+          <view class="cell">{{item.userId}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="scroll-view-title">请假学生名单</view>
+    <scroll-view scroll-y="true" style="height: 200rpx;background-color:#3e4a51">
+      <view class="table">
+        <view class="row clearfix" wx:for="{{onLeaveStudents}}">
+          <view class="cell">{{index+1}}</view>
+          <view class="cell">{{item.userName}}</view>
+          <view class="cell">{{item.userId}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <button class="add-course" bindtap="addToNamelist" disabled="{{!countdownEnd}}">+ 手动添加</button>
+    <block wx:if="{{manuAdd}}">
+      <view class="add clearfix">
+        <input placeholder="请输入完整学号" bindinput="inputStuId" auto-focus class="add-input" />
+        <button bindtap="manuAdd" class="add-btn">添加</button>
+      </view>
+    </block>
+  </block>
+
+  <!--学生签到-->
+  <block wx:if="{{template == 'signin'}}">
+    <view class="sign-in-view">
+      <view class="countdown" style="background-color:{{bgc}}">
+        <view class="cd-top">{{timeLeft}}</view>
+        <view class="cd-bottom">剩余时间</view>
+      </view>
+      <button bindtap="qrcodeSignIn" disabled="{{!countdownEnd}}" class="scanCode">
+        <image src="/images/Scan.png" class="btn-icon"></image> 扫描二维码签到</button>
+    </view>
+  </block>
+</view>

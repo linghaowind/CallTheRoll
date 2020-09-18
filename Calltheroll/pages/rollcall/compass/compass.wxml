@@ -1,0 +1,63 @@
+<view class="container">
+  <block wx:if="{{template == 'compass-panel'}}">
+    <view class="compass-panel">
+      <view class="compass">
+        <image src="../../../images/compass.png" class="cp-bg-img" style="transform:rotate({{-direction}}deg)"></image>
+        <image src="../../../images/Pointer.png" class="compass-pointer"></image>
+      </view>
+      <view class="degree">{{direction}}°</view>
+    </view>
+    <view class="button">
+      <button bindtap="createRollcall" class="light-btn" wx:if="{{userType == 'teacher'}}">上传角度</button>
+      <button bindtap="signIn" class="light-btn" wx:if="{{userType == 'student'}}">上传角度&签到</button>
+    </view>
+  </block>
+
+  <!--签到情况-->
+  <scroll-view class="countdown-panel" scroll-y="true" animation="{{animation}}">
+    <block wx:if="{{template == 'countdown'}}">
+      <view class="countdown" style="background-color:{{bgc}}">
+        <view class="cd-top">{{timeLeft}}</view>
+        <view class="cd-bottom">剩余时间</view>
+      </view>
+      <view class="progress clearfix">
+        <progress percent="{{signedInStudentsNum/studentSum*100}}" color="	#09BB07" active stroke-width="20" class="percent" />
+        <view class="detail">{{signedInStudentsNum}}/{{studentSum}}</view>
+      </view>
+      <view class="scroll-view-title">签到学生名单</view>
+      <view class="table">
+        <view class="row head clearfix">
+          <view class="cell">序号</view>
+          <view class="cell">姓名</view>
+          <view class="cell">学号</view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" style="height: 600rpx">
+        <view class="table">
+          <view class="row clearfix" wx:for="{{signedInStudents}}">
+            <view class="cell">{{index+1}}</view>
+            <view class="cell">{{item.userName}}</view>
+            <view class="cell">{{item.userId}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="scroll-view-title">请假学生名单</view>
+      <scroll-view scroll-y="true" style="height: 200rpx;background-color:#3e4a51">
+        <view class="table">
+          <view class="row clearfix" wx:for="{{onLeaveStudents}}">
+            <view class="cell">{{index+1}}</view>
+            <view class="cell">{{item.userName}}</view>
+            <view class="cell">{{item.userId}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <button class="light-btn" bindtap="addToNamelist" disabled="{{!countdownEnd}}">+ 手动添加</button>
+      <block wx:if="{{manuAdd}}">
+        <view class="add clearfix">
+          <input placeholder="请输入完整学号" bindinput="inputStuId" auto-focus class="add-input" />
+          <button bindtap="manuAdd" class="add-btn">添加</button>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

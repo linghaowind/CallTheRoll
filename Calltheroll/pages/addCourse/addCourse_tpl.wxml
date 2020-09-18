@@ -1,0 +1,52 @@
+<template name="add-course">
+  <form bindsubmit="formSubmit">
+    <view class="course-sheet">
+      <view class="section">
+        <view class="section-title">上课时间</view>
+        <checkbox-group name="weekdays" class="checkbox-group clearfix">
+          <label class="checkbox-label" wx:for="{{weekdays}}">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" class="checkbox" />{{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+      <view class="section">
+        <input placeholder="课程名称" auto-focus name="courseName" />
+      </view>
+      <view class="section">
+        <input value="{{courseTeacher}}" placeholder="任课教师" />
+      </view>
+      <view class="section">
+        <input name="courseAddr" placeholder="任课地点 -- X1234" />
+      </view>
+      <view class="section">
+        <picker mode="time" value="{{timeStart}}" start="08:00" end="21:00" bindchange="bindTimeStartChange" name="courseTimeStart">
+          <view class="picker timeStart">
+            {{timeStart}}
+          </view>
+        </picker>
+        <picker mode="time" value="{{timeEnd}}" start="09:35" end="22:00" bindchange="bindTimeEndChange" name="courseTimeEnd">
+          <view class="picker timeEnd">
+            {{timeEnd}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button formType="submit" class="add-course" hover-class="add-course-hover">添加课程</button>
+    </view>
+  </form>
+</template>
+<template name="search-course">
+  <view class="search-field">
+    <input placeholder="输入课程名称关键词搜索" class="search" bindinput="searchCourse" auto-focus/>
+  </view>
+  <view class="course-per-weekday" wx:for="{{results}}">
+    <view class="course">
+      <text class="course-name">{{item.courseName}}</text>
+      <text class="course-classroom">教师：{{item.teacherName}}</text>
+      <view class="course-time">
+        <text data-course-id="{{item.objectId}}" bindtap="chooseCourse">选择课程</text>
+      </view>
+    </view>
+  </view>
+</template>

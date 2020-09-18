@@ -1,0 +1,153 @@
+<view class="container">
+  <map id="map" longitude="{{location.longitude}}" latitude="{{location.latitude}}" scale="16" show-location wx:if="{{template !== 'countdown'}}" markers="{{markers}}" circles="{{circles}}"></map>
+  <view class="panel">
+    <block wx:if="{{template === 'create'}}">
+      <view class="panel-wrapper">
+        <view class="box">
+          <view class="row">
+            <image src="/images/Marker-100.png" class="icon"></image>
+            <view class="desc">位置</view>
+          </view>
+          <view class="row">
+            <view class="loc">
+              <text wx:if="{{location.hasLocation === false}}">未获取</text>
+              <text wx:if="{{location.hasLocation === true}}">E{{formatedLocation.longitude[0]}}°{{formatedLocation.longitude[1]}}′ N{{formatedLocation.latitude[0]}}°{{formatedLocation.latitude[1]}}′</text>
+            </view>
+            <view class="accuracy">定位精度: {{accuracy}} m</view>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Location-100.png" class="icon"></image>
+            <view class="desc">定位</view>
+          </view>
+          <view class="row">
+            <button class="define-location-button" bindtap="getLocation">获取位置</button>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Clock-100.png" class="icon"></image>
+            <view class="desc">定时</view>
+          </view>
+          <view class="row">
+            <slider bindchange="timeoutChange" min="1" max="10" value="{{timeout}}" step="1" selected-color="#3e4a51" show-value/>
+            <view class="accuracy">点名有效时间： {{timeout}} min</view>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Radius-100.png" class="icon"></image>
+            <view class="desc">半径</view>
+          </view>
+          <view class="row">
+            <slider bindchange="radiusChange" min="100" max="2000" value="{{radius}}" step="100" selected-color="#3e4a51" show-value/>
+            <view class="accuracy">范围：半径 {{radius}} m内</view>
+          </view>
+        </view>
+      </view>
+      <view class="pop-up">
+        <button bindtap="createRollcall" disabled="{{location.hasLocation === false}}">发布点名</button>
+      </view>
+    </block>
+    <block wx:if="{{template === 'signIn'}}">
+      <view class="panel-wrapper">
+        <view class="box">
+          <view class="row">
+            <image src="/images/Marker-100.png" class="icon"></image>
+            <view class="desc">位置</view>
+          </view>
+          <view class="row">
+            <view class="loc">
+              <text wx:if="{{location.hasLocation === false}}">未获取</text>
+              <text wx:if="{{location.hasLocation === true}}">E{{formatedLocation.longitude[0]}}°{{formatedLocation.longitude[1]}}′ N{{formatedLocation.latitude[0]}}°{{formatedLocation.latitude[1]}}′</text>
+            </view>
+            <view class="accuracy">定位精度: {{accuracy}} m</view>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Location-100.png" class="icon"></image>
+            <view class="desc">定位</view>
+          </view>
+          <view class="row">
+            <button class="define-location-button" bindtap="getLocation">获取位置</button>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Clock-100.png" class="icon"></image>
+            <view class="desc">定时</view>
+          </view>
+          <view class="row">
+            <view class="loc">
+              <text>{{timeLeft}}</text>
+            </view>
+            <view class="accuracy">请抓紧时间签到</view>
+          </view>
+        </view>
+        <view class="box">
+          <view class="row">
+            <image src="/images/Radius-100.png" class="icon"></image>
+            <view class="desc">半径</view>
+          </view>
+          <view class="row">
+            <view class="loc">
+              <text>{{radius}} m</text>
+            </view>
+            <view class="accuracy">你的位置需要在该半径内</view>
+          </view>
+        </view>
+      </view>
+      <view class="pop-up">
+        <button bindtap="signIn" class="default-btn" disabled="{{countdownEnd || !location.hasLocation}}">报告地理位置并签到</button>
+      </view>
+    </block>
+  </view>
+  <scroll-view class="countdown-panel" scroll-y="true" animation="{{animation}}">
+    <block wx:if="{{template === 'countdown'}}">
+      <view class="countdown" style="background-color:{{bgc}}">
+        <view class="cd-top">{{timeLeft}}</view>
+        <view class="cd-bottom">剩余时间</view>
+      </view>
+      <view class="progress clearfix">
+        <progress percent="{{signedInStudentsNum/studentSum*100}}" color="	#09BB07" active stroke-width="20" class="percent" />
+        <view class="detail">{{signedInStudentsNum}}/{{studentSum}}</view>
+      </view>
+      <view class="scroll-view-title">签到学生名单</view>
+      <view class="table">
+        <view class="row head clearfix">
+          <view class="cell">序号</view>
+          <view class="cell">姓名</view>
+          <view class="cell">学号</view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" style="height: 600rpx">
+        <view class="table">
+          <view class="row clearfix" wx:for="{{signedInStudents}}">
+            <view class="cell">{{index+1}}</view>
+            <view class="cell">{{item.userName}}</view>
+            <view class="cell">{{item.userId}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="scroll-view-title">请假学生名单</view>
+      <scroll-view scroll-y="true" style="height: 200rpx;background-color:#3e4a51">
+        <view class="table">
+          <view class="row clearfix" wx:for="{{onLeaveStudents}}">
+            <view class="cell">{{index+1}}</view>
+            <view class="cell">{{item.userName}}</view>
+            <view class="cell">{{item.userId}}</view>
+          </view>
+        </view>
+      </scroll-view>
+      <button class="light-btn" bindtap="addToNamelist" disabled="{{!countdownEnd}}">+ 手动添加</button>
+      <block wx:if="{{manuAdd}}">
+        <view class="add clearfix">
+          <input placeholder="请输入完整学号" bindinput="inputStuId" auto-focus class="add-input" />
+          <button bindtap="manuAdd" class="add-btn">添加</button>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

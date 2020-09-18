@@ -1,0 +1,110 @@
+view {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #3e4a51;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rollcall-button {
+  flex: 0 0 30%;
+  width: 700rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.rollcall-button .rc-name {
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 80rpx;
+  font-weight: bold;
+  text-shadow: #3e4a51 0 0 10px;
+  letter-spacing: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rollcall-button .rc-desc {
+  flex: 0 0 80rpx;
+  line-height: 80rpx;
+  font-size: 12px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sign-in-btn {
+  width: 100%;
+  padding: 140rpx 0;
+}
+
+.pulse-button {
+  height: 300rpx;
+  line-height: 300rpx;
+  font-size: 40px;
+  width: 300rpx;
+  margin: 0 auto;
+  color: #fff;
+  border-radius: 150rpx;
+  background-color: #51c7bc;
+  border: none;
+  box-shadow: 0 0 0 0 rgba(81, 199, 188, 0.5);
+  animation: pulse 1.5s infinite;
+}
+
+.pulse-button:hover {
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(62, 74, 81, 0);
+  }
+
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(62, 74, 81, 0);
+  }
+}
+
+swiper {
+  flex: 1 1 auto;
+  width: 100%;
+  background-color: #fff;
+}
+.banner{
+  width: 100%;
+  height: 100%;
+}
+.qr-code {
+  background: #3e4a51 url(https://dn-03kfwto5.qbox.me/5419a9ec2f854f429bb5.jpg) no-repeat;
+  background-size: 100% 100%;
+  /*text-shadow: #3e4a51 0 0 10px;*/
+}
+
+.location {
+  background: #3e4a51 url(https://dn-03kfwto5.qbox.me/5c443b7762670f965222.jpg) no-repeat;
+  background-size: 100% 100%;
+  /*color: #3e4a51;*/
+  /*text-shadow: #3e4a51 0 0 10px;*/
+}
+
+.compass {
+  background: #3e4a51 url(https://dn-03kfwto5.qbox.me/49066bc176ac9fa6d41c.jpg) no-repeat;
+  background-size: 100% 100%;
+  /*color: #fff;*/
+  /*text-shadow: #3e4a51 0 0 10px;*/
+}
+
+

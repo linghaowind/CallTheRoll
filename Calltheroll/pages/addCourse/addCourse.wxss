@@ -1,0 +1,132 @@
+.section {
+  margin-bottom: 50rpx;
+}
+
+.section .section-title {
+  font-size: 20px;
+  line-height: 50rpx;
+  color: #c1c1c1;
+}
+.checkbox-label{
+  float: left;
+  width: 200rpx;
+  margin: 10rpx 0;
+  font-size: 16px;
+}
+.checkbox-group{
+  width: 600rpx;
+  margin: 0 auto;
+}
+.section input {
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 0 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 18px;
+  border: 2px #49545b solid;
+  border-radius: 10rpx;
+}
+.section picker {
+  display: inline-block;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 20px;
+  color: #fff;
+  width: 50%;
+}
+.section .timeStart {
+  background-color: #49545b;
+}
+.section .timeEnd {
+  background-color: #3e4a51;
+}
+
+.add-course {
+  width: 80%;
+  height: 80rpx;
+  font-size: 16px;
+  line-height: 80rpx;
+  margin: 50rpx auto;
+  background-color: #49545b;
+  color: #fff;
+}
+
+.add-course-hover {
+  background-color: #3e4a51;
+}
+
+.search-field {
+  width: 600rpx;
+  margin: 100rpx auto;
+}
+
+.search-field input {
+  background-color: #fff;
+  height: 80rpx;
+  font-size: 16px;
+  line-height: 80rpx;
+  padding-left: 40rpx;
+}
+
+.course-per-weekday {
+  width: 94%;
+  margin: 40rpx auto;
+}
+
+.course-per-weekday .weekday {
+  color: #c1c1c1;
+  letter-spacing: 6rpx;
+  font-size: 16px;
+}
+
+.course-per-weekday .course {
+  box-sizing: border-box;
+  height: 160rpx;
+  background-color: #fff;
+  margin: 20rpx 0;
+  box-shadow: 4rpx 4rpx 4rpx #d4d4d4;
+  position: relative;
+  padding: 40rpx 20rpx;
+}
+
+.course .course-name {
+  display: block;
+  font-size: 16px;
+  line-height: 46rpx;
+  letter-spacing: 4rpx;
+}
+
+.course .course-classroom {
+  color: #aaa;
+  line-height: 28rpx;
+}
+
+.course .course-time {
+  height: 80rpx;
+  width: 300rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+  background-color: #3e4a51;
+  text-align: center;
+}
+
+.course-time text {
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 300rpx;
+}
+
+.course-sheet {
+  width: 700rpx;
+  margin: 40rpx auto;
+  box-sizing: border-box;
+  /*height: 500rpx;*/
+  background-color: #fff;
+  box-shadow: 4rpx 4rpx 4rpx #d4d4d4;
+  position: relative;
+  padding: 20rpx;
+}
